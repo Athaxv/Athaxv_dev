@@ -18,7 +18,7 @@ import { Textarea } from "./ui/textarea";
 export function ContactSection() {
   const { theme } = useTheme();
   return (
-    <section className="flex flex-col items-center justify-center mt-20">
+    <section className="flex flex-col items-center justify-center mt-20 mb-20">
       <div className="mb-20">
         <h1 className="font-bold text-4xl flex justify-center items-center">Let's build something great</h1>
       <p className="mt-2 text-gray-500">Whether you have a question, a project idea, or just want to say hello, my inbox is always open</p>
