@@ -65,28 +65,28 @@ const Icons = {
 const DATA = {
   navbar: [
     { href: "#", icon: HomeIcon, label: "Home" },
-    { href: "#", icon: PencilIcon, label: "Blog" },
+    // { href: "#", icon: PencilIcon, label: "Blog" },
   ],
   contact: {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "#",
+        url: "https://github.com/Athaxv",
         icon: Icons.github,
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "#",
+        url: "www.linkedin.com/in/athaxv",
         icon: Icons.linkedin,
       },
       X: {
         name: "X",
-        url: "#",
+        url: "https://x.com/Athaxv05",
         icon: Icons.x,
       },
       email: {
         name: "Send Email",
-        url: "#",
+        url: "https://mail.google.com/mail/u/0/#inbox?compose=new",
         icon: Icons.email,
       },
     },
