@@ -1,4 +1,7 @@
+"use client"
 import Image from "next/image";
+import { MagicCard } from "./magicui/magic-card";
+import { useTheme } from "next-themes";
 
 // Reusable component for each job entry
 function ExperienceItem({ company, role, duration, logoSrc }) {
@@ -26,6 +29,7 @@ function ExperienceItem({ company, role, duration, logoSrc }) {
 
 
 export function ExperienceSection() {
+  const {theme} = useTheme()
   return (
     <section id="experience" className="w-full">
       <div className="mx-auto max-w-4xl text-center">
@@ -36,8 +40,12 @@ export function ExperienceSection() {
           My professional journey and key roles.
         </p>
       </div>
-
-      <div className="mx-auto mt-16 max-w-5xl space-y-8 rounded-2xl border border-border bg-card/20 p-8">
+      
+      <div className="mx-auto mt-16 max-w-4xl space-y-6 rounded-2xl p-6">
+      <MagicCard
+              gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
+              className="p-4"
+            >
         <ExperienceItem 
           company="NICSI" 
           role="FullStack Developer Intern" 
@@ -52,7 +60,9 @@ export function ExperienceSection() {
           logoSrc="/another-logo.png"
         />
         */}
+        </MagicCard>
       </div>
+      
     </section>
   );
 }
