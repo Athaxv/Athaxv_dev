@@ -41,8 +41,19 @@ export function ExperienceSection() {
         </p>
       </div>
       
-      <div className="mx-auto mt-16 max-w-4xl space-y-6 rounded-2xl p-6">
+      <div className="mx-auto flex flex-col mt-16 max-w-4xl space-y-6 rounded-2xl p-6">
       <MagicCard
+              gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
+              className="p-4"
+            >
+        <ExperienceItem 
+          company="Imperial IT solution" 
+          role="IT Intern" 
+          duration="June 2025 - Aug 2025"
+          logoSrc="/intern.jpeg" // Make sure this path is correct
+        />
+        </MagicCard>
+        <MagicCard
               gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
               className="p-4"
             >
@@ -52,6 +63,7 @@ export function ExperienceSection() {
           duration="July 2025 - Aug 2025"
           logoSrc="/image.webp" // Make sure this path is correct
         />
+        </MagicCard>
         {/* You can add more ExperienceItem components here for other jobs */}
         {/* <ExperienceItem 
           company="Another Company" 
@@ -60,7 +72,7 @@ export function ExperienceSection() {
           logoSrc="/another-logo.png"
         />
         */}
-        </MagicCard>
+        
       </div>
       
     </section>
