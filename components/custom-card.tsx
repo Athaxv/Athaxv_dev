@@ -44,7 +44,7 @@ export default function CustomCard({
   return (
     // 1. Added `flex h-full flex-col` to make the card a full-height flex container
     <Card className={cn(
-      "w-full max-w-sm overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-lg backdrop-blur-md transition-all duration-200 hover:shadow-xl dark:border-neutral-800 dark:bg-black/80 dark:shadow-xl dark:hover:shadow-2xl flex h-full flex-col",
+      "w-full pt-0 max-w-sm overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-lg backdrop-blur-md transition-all duration-200 hover:shadow-xl dark:border-neutral-800 dark:bg-black/80 dark:shadow-xl dark:hover:shadow-2xl flex h-full flex-col",
       className
     )}>
       {/* Image section */}
