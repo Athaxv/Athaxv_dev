@@ -95,68 +95,72 @@ const DATA = {
 
 export function DockDemo() {
   return (
-    <div className="flex flex-col items-center justify-center">
-      <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
-        Dock
-      </span>
-      <TooltipProvider>
-        <Dock direction="middle">
-          {DATA.navbar.map((item) => (
-            <DockIcon key={item.label}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Link
-                    href={item.href}
-                    aria-label={item.label}
-                    className={cn(
-                      buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 rounded-full",
-                    )}
-                  >
-                    <item.icon className="size-4" />
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{item.label}</p>
-                </TooltipContent>
-              </Tooltip>
-            </DockIcon>
-          ))}
-          <Separator orientation="vertical" className="h-full" />
-          {Object.entries(DATA.contact.social).map(([name, social]) => (
-            <DockIcon key={name}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Link
-                    href={social.url}
-                    aria-label={social.name}
-                    className={cn(
-                      buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 rounded-full",
-                    )}
-                  >
-                    <social.icon className="size-4" />
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{name}</p>
-                </TooltipContent>
-              </Tooltip>
-            </DockIcon>
-          ))}
-          <Separator orientation="vertical" className="h-full py-2" />
-          <DockIcon>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <ModeToggle  />
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Theme</p>
-              </TooltipContent>
-            </Tooltip>
-          </DockIcon>
-        </Dock>
-      </TooltipProvider>
-    </div>
+    <div className="fixed bottom-12 left-0 w-full flex justify-center z-50">
+  {/* <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
+    Dock
+  </span> */}
+  <TooltipProvider>
+    {/* 👇 The change is on this line */}
+    <Dock
+      direction="middle"
+      className="border bg-white/50 dark:bg-black/50 backdrop-blur-lg shadow-lg rounded-full"
+    >
+      {DATA.navbar.map((item) => (
+        <DockIcon key={item.label}>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Link
+                href={item.href}
+                aria-label={item.label}
+                className={cn(
+                  buttonVariants({ variant: "ghost", size: "icon" }),
+                  "size-12 rounded-full",
+                )}
+              >
+                <item.icon className="size-4" />
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>{item.label}</p>
+            </TooltipContent>
+          </Tooltip>
+        </DockIcon>
+      ))}
+      <Separator orientation="vertical" className="h-full" />
+      {Object.entries(DATA.contact.social).map(([name, social]) => (
+        <DockIcon key={name}>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Link
+                href={social.url}
+                aria-label={social.name}
+                className={cn(
+                  buttonVariants({ variant: "ghost", size: "icon" }),
+                  "size-12 rounded-full",
+                )}
+              >
+                <social.icon className="size-4" />
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>{name}</p>
+            </TooltipContent>
+          </Tooltip>
+        </DockIcon>
+      ))}
+      <Separator orientation="vertical" className="h-full py-2" />
+      <DockIcon>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <ModeToggle />
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Theme</p>
+          </TooltipContent>
+        </Tooltip>
+      </DockIcon>
+    </Dock>
+  </TooltipProvider>
+</div>
   );
 }
