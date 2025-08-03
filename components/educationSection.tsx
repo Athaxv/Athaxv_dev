@@ -1,10 +1,14 @@
 "use client";
-
-import { motion } from "framer-motion";
 import { GraduationCap } from "lucide-react";
 import { AnimatedGradientText } from "./magicui/animated-gradient-text";
 
 // The data now focuses on the institution
+interface educationProps {
+  institution: string,
+  degree: string,
+  years: string
+}
+
 const educationData = [
   {
     institution: "Maharaja Surajmal Institute of Technology",
@@ -19,7 +23,7 @@ const educationData = [
 ];
 
 // Reusable component for each entry
-function EducationItem({ institution, degree, years }) {
+function EducationItem({ institution, degree, years }: educationProps) {
   return (
     <div className="relative flex pl-8">
       {/* Timeline node - themed */}

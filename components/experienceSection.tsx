@@ -4,8 +4,15 @@ import { MagicCard } from "./magicui/magic-card";
 import { useTheme } from "next-themes";
 import { AnimatedGradientText } from "./magicui/animated-gradient-text";
 
+interface ExperienceProps {
+  company: string,
+  role: string,
+  duration: string,
+  logoSrc: string
+}
+
 // Reusable component for each job entry
-function ExperienceItem({ company, role, duration, logoSrc }) {
+function ExperienceItem({ company, role, duration, logoSrc }: ExperienceProps) {
   return (
     <div className="flex w-full items-center justify-between">
       <div className="flex items-center gap-4">

@@ -7,24 +7,14 @@ import { AnimatedGradientText } from "./magicui/animated-gradient-text";
 // --- YOUR PROJECT DATA ---
 const projects = [
   {
-    title: "Chat Collect",
-    subtitle: "Jan 2024 - Feb 2024",
-    description: "A SaaS that allows OpenAI GPT creators to collect user email addresses, building an audience and monetizing API usage.",
-    image: "/port2.png",
-    imageAlt: "Chat Collect application preview",
-    tags: ["Next.js", "TypeScript", "Prisma", "TailwindCSS", "Stripe"],
+    title: "Startup Idea Validator",
+    subtitle: "April 2025 - May 2025",
+    description: "Startup Idea Validator is a full-stack web application that helps entrepreneurs validate their startup ideas using AI. It analyzes your idea based on key startup parameters like pitch, market, revenue model, and more — returning a detailed analysis, AI-powered score, and key improvements to enhance your pitch.",
+    image: "/port3.png",
+    imageAlt: "Startup Idea Preview",
+    tags: ["Next.js", "TypeScript", "Prisma", "TailwindCSS", "Gemini"],
     buttonText: "View Project",
-    buttonHref: "https://example.com",
-  },
-  {
-    title: "Portfolio Platform",
-    subtitle: "Mar 2024 - Apr 2024",
-    description: "A dynamic portfolio template designed for developers to showcase their work with elegance and a modern user experience. This description is a bit longer to demonstrate how the card height remains consistent.",
-    image: "/port1.png",
-    imageAlt: "Portfolio Platform preview",
-    tags: ["Next.js", "Framer Motion", "Shadcn UI"],
-    buttonText: "View Project",
-    buttonHref: "https://example.com",
+    buttonHref: "https://ai-startup-validator.vercel.app/",
   },
   {
     title: "PathAI",
@@ -34,7 +24,17 @@ const projects = [
     imageAlt: "Analytics Dashboard preview",
     tags: ["Next.js", "Postgres", "Clerk", "Node.js", "Prisma", "Docker"],
     buttonText: "View Project",
-    buttonHref: "https://example.com",
+    buttonHref: "https://path-ai-brown.vercel.app/",
+  },
+  {
+    title: "RandomEcho",
+    subtitle: "October 2024 - November 2024",
+    description: "Anonymously Connect, Speak Freely with Random Echoes, A safe, private platform where your identity remains yours alone.",
+    image: "/port4.png",
+    imageAlt: "Anonymous Messaging Platform",
+    tags: ["Next.js", "Zod", "TypeScript", "MongoDB", "Resend", "NextAuth"],
+    buttonText: "View Project",
+    buttonHref: "https://randomecho.onrender.com/",
   },
 ];
 
@@ -55,7 +55,7 @@ const itemVariants = {
     y: 0,
     transition: { type: "spring", stiffness: 100, damping: 10 },
   },
-};
+} as const;
 
 export function ProjectsSection() {
   return (
@@ -68,13 +68,13 @@ export function ProjectsSection() {
                     // Dark mode overrides
                     "dark:border-neutral-700"
                   }>
-                    🚀 Things I've Built
+                    🚀 Things I&apos;ve Built
                   </AnimatedGradientText>
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             My Recent Work
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Here are a few projects I've worked on recently.
+            Here are a few projects I&apos;ve worked on recently.
           </p>
         </div>
 
