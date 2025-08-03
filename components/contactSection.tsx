@@ -31,7 +31,7 @@ export function ContactSection() {
           🤝 Open to Opportunities
         </AnimatedGradientText>
         </div>
-        <h1 className="font-bold text-4xl flex justify-center items-center">Let's build something great</h1>
+        <h1 className="font-bold text-4xl flex justify-center items-center">Let&apos;s build something great</h1>
       <p className="mt-2 text-gray-500">Whether you have a question, a project idea, or just want to say hello, my inbox is always open</p>
       </div>
       <Card className="p-0 max-w-xl w-full shadow-none border-none">
@@ -40,7 +40,7 @@ export function ContactSection() {
         className="p-0"
       >
         <CardHeader className="border-b border-border p-4 [.border-b]:pb-4">
-          <CardTitle>Let's Connect</CardTitle>
+          <CardTitle>Let&apos;s Connect</CardTitle>
           <CardDescription>
             Ready to start your next project?
           </CardDescription>
