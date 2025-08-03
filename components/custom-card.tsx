@@ -9,12 +9,11 @@ import {
   CardTitle
 } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import Link from "next/link"
 import { ExternalLink } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { RainbowButton } from "./magicui/rainbow-button"
+import Link from "next/link"
 
 interface CustomCardProps {
   title: string
@@ -38,7 +37,6 @@ export default function CustomCard({
   tags = [],
   buttonText = "View Project", // Default text
   buttonHref = "#", // Default href
-  onButtonClick,
   className = ""
 }: CustomCardProps) {
   return (
@@ -86,12 +84,14 @@ export default function CustomCard({
 
       {/* 3. Placed the RainbowButton inside a CardFooter for proper structure and padding */}
       <CardFooter className="p-4 pt-0">
-        <RainbowButton href={buttonHref} variant={'outline'} className="w-full">
-            <div className="flex items-center justify-center gap-2">
-              <ExternalLink className="h-4 w-4" />
-              {buttonText}
-            </div>
-        </RainbowButton>
+        <Link href={buttonHref} target="_blank" rel="noopener noreferrer" className="w-full">
+          <RainbowButton variant={'outline'} className="w-full">
+              <div className="flex items-center justify-center gap-2">
+                <ExternalLink className="h-4 w-4" />
+                {buttonText}
+              </div>
+          </RainbowButton>
+        </Link>
       </CardFooter>
     </Card>
   )
