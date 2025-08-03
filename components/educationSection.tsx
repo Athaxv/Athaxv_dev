@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { GraduationCap } from "lucide-react";
+import { AnimatedGradientText } from "./magicui/animated-gradient-text";
 
 // The data now focuses on the institution
 const educationData = [
@@ -40,9 +41,19 @@ function EducationItem({ institution, degree, years }) {
 
 export function EducationSection() {
   return (
-    <section id="education" className="w-full">
+    <section id="education" className="w-full mb-40">
       {/* Section Header - themed */}
       <div className="mx-auto max-w-4xl text-center">
+        <div className="mb-2">
+          <AnimatedGradientText className={
+  // Base (light mode) styles
+  "text-sm font-medium mb-6 rounded-full  p-1 px-3 " +
+  // Dark mode overrides
+  "dark:border-neutral-700"
+}>
+  🎓 Academics & Qualifications
+</AnimatedGradientText>
+        </div>
         <h2 className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-4xl">
           Education
         </h2>
