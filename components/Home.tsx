@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { SpinningText } from "./magicui/spinning-text";
 import { RainbowButton } from "./magicui/rainbow-button";
 import { Italianno } from "next/font/google";
+import { MessageCircle } from "lucide-react";
 
 const italianno = Italianno({ subsets: ["latin"], weight: "400" });
 
@@ -18,7 +19,7 @@ const containerVariants = {
       staggerChildren: 0.2, // Adds a 0.2s delay between each child animating in
     },
   },
-};
+} as const;
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -30,7 +31,7 @@ const itemVariants = {
       ease: "easeOut",
     },
   },
-};
+} as const;
 
 
 export function HomePage() {
@@ -53,11 +54,11 @@ export function HomePage() {
           >
             Atharv Gaur
           </motion.h1>
-          
+
           <motion.div variants={itemVariants} className="my-4">
             <SpinningText>Eat more • code more • sleep more •</SpinningText>
           </motion.div>
-          
+
           <motion.p
             variants={itemVariants}
             className="mx-auto max-w-2xl text-lg leading-8 text-muted-foreground"
@@ -69,10 +70,24 @@ export function HomePage() {
             variants={itemVariants}
             className="mt-10 flex items-center justify-center gap-x-4"
           >
-            <Button variant={'ghost'}>
-              Get in Touch
-            </Button>
-            <RainbowButton href="#" variant={'outline'}>Resume</RainbowButton>
+            <Button variant={'ghost'} asChild>
+  <a
+    href="https://wa.me/9625222131" // <-- 2. REPLACE with your number
+    target="_blank" // Opens WhatsApp in a new tab/app
+    rel="noopener noreferrer" // Security best practice
+    className="flex items-center gap-2" // For aligning text and icon
+  >
+    <MessageCircle className="h-4 w-4" /> Get in Touch
+  </a>
+</Button>
+           <Link
+  href="/Atharv.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  passHref
+>
+  <RainbowButton variant={'outline'}>Resume</RainbowButton>
+</Link>
           </motion.div>
         </motion.div>
       </div>
