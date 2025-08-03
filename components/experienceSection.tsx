@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { MagicCard } from "./magicui/magic-card";
 import { useTheme } from "next-themes";
+import { AnimatedGradientText } from "./magicui/animated-gradient-text";
 
 // Reusable component for each job entry
 function ExperienceItem({ company, role, duration, logoSrc }) {
@@ -33,6 +34,14 @@ export function ExperienceSection() {
   return (
     <section id="experience" className="w-full">
       <div className="mx-auto max-w-4xl text-center">
+        <AnimatedGradientText className={
+          // Base (light mode) styles
+          "text-sm font-medium mb-8 rounded-full  p-1 px-3 " +
+          // Dark mode overrides
+          "dark:border-neutral-700"
+        }>
+          💼 Professional Journey
+        </AnimatedGradientText>
         <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           Experience
         </h2>
@@ -74,7 +83,7 @@ export function ExperienceSection() {
         */}
         
       </div>
-      
+      <p className="flex justify-center items-center mt-16 text-gray-400 mb-20">And many more to come..</p>
     </section>
   );
 }
