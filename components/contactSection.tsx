@@ -14,12 +14,23 @@ import { Label } from "@/components/ui/label";
 import { MagicCard } from "@/components/magicui/magic-card";
 import { useTheme } from "next-themes";
 import { Textarea } from "./ui/textarea";
+import { AnimatedGradientText } from "./magicui/animated-gradient-text";
 
 export function ContactSection() {
   const { theme } = useTheme();
   return (
     <section className="flex flex-col items-center justify-center mt-20 mb-20">
       <div className="mb-20">
+        <div className="flex justify-center items-center">
+          <AnimatedGradientText className={
+          // Base (light mode) styles
+          "text-sm font-medium mb-2 rounded-full  p-1 px-3 " +
+          // Dark mode overrides
+          "dark:border-neutral-700"
+        }>
+          🤝 Open to Opportunities
+        </AnimatedGradientText>
+        </div>
         <h1 className="font-bold text-4xl flex justify-center items-center">Let's build something great</h1>
       <p className="mt-2 text-gray-500">Whether you have a question, a project idea, or just want to say hello, my inbox is always open</p>
       </div>
@@ -49,7 +60,7 @@ export function ContactSection() {
           </form>
         </CardContent>
         <CardFooter className="p-4 border-t border-border [.border-t]:pt-4">
-          <Button className="w-full">Sign In</Button>
+          <Button className="w-full">Send Message</Button>
         </CardFooter>
       </MagicCard>
     </Card>
