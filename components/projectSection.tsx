@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import CustomCard from "./custom-card"; // The updated card component
+import { AnimatedGradientText } from "./magicui/animated-gradient-text";
 
 // --- YOUR PROJECT DATA ---
 const projects = [
@@ -61,6 +62,14 @@ export function ProjectsSection() {
     <section id="projects" className="py-24 sm:py-32">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="mb-16 text-center">
+          <AnimatedGradientText className={
+                    // Base (light mode) styles
+                    "text-sm font-medium mb-8 rounded-full  p-1 px-3 " +
+                    // Dark mode overrides
+                    "dark:border-neutral-700"
+                  }>
+                    🚀 Things I've Built
+                  </AnimatedGradientText>
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             My Recent Work
           </h2>
