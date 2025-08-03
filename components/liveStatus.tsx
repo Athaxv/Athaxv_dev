@@ -1,45 +1,55 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { cn } from "@/lib/utils" // Assumes you have this from shadcn/ui
 
 interface StatusData {
   text: string
+  // 1. We now store the actual color values
   color: string
   bgColor: string
   borderColor: string
+  dotColor: string
 }
 
+// HSL colors are great for this, as we can easily control opacity
 const statusOptions: StatusData[] = [
   {
     text: "Available for work",
-    color: "text-green-700 dark:text-green-300",
-    bgColor: "bg-green-500/5 dark:bg-green-400/5",
-    borderColor: "border-green-500/30 dark:border-green-400/30",
+    color: "hsl(143, 76%, 36%)", // green-700
+    bgColor: "hsla(143, 76%, 36%, 0.05)",
+    borderColor: "hsla(143, 76%, 36%, 0.3)",
+    dotColor: "hsl(142, 71%, 45%)", // green-500
   },
   {
     text: "Building something cool",
-    color: "text-blue-700 dark:text-blue-300",
-    bgColor: "bg-blue-500/5 dark:bg-blue-400/5",
-    borderColor: "border-blue-500/30 dark:border-blue-400/30",
+    color: "hsl(221, 83%, 53%)", // blue-700
+    bgColor: "hsla(221, 83%, 53%, 0.05)",
+    borderColor: "hsla(221, 83%, 53%, 0.3)",
+    dotColor: "hsl(221, 83%, 53%)", // blue-500
   },
   {
     text: "Learning new tech",
-    color: "text-purple-700 dark:text-purple-300",
-    bgColor: "bg-purple-500/5 dark:bg-purple-400/5",
-    borderColor: "border-purple-500/30 dark:border-purple-400/30",
+    color: "hsl(262, 83%, 58%)", // purple-700
+    bgColor: "hsla(262, 83%, 58%, 0.05)",
+    borderColor: "hsla(262, 83%, 58%, 0.3)",
+    dotColor: "hsl(262, 83%, 58%)", // purple-500
   },
   {
-    text: "Open to opportunities",
-    color: "text-green-700 dark:text-green-300",
-    bgColor: "bg-green-500/5 dark:bg-green-400/5",
-    borderColor: "border-green-500/30 dark:border-green-400/30",
+    text: "Doing Leetcode",
+    color: "hsl(35, 91%, 54%)", // orange-700
+    bgColor: "hsla(35, 91%, 54%, 0.05)",
+    borderColor: "hsla(35, 91%, 54%, 0.3)",
+    dotColor: "hsl(25, 95%, 53%)", // orange-500
   },
   {
-    text: "Coding right now",
-    color: "text-orange-700 dark:text-orange-300",
-    bgColor: "bg-orange-500/5 dark:bg-orange-400/5",
-    borderColor: "border-orange-500/30 dark:border-orange-400/30",
-  },
+    // New "Sleeping" status 😴
+    text: "Sleeping right now",
+    color: "hsl(0, 72%, 51%)", // red-700
+    bgColor: "hsla(0, 84%, 60%, 0.05)",
+    borderColor: "hsla(0, 84%, 60%, 0.3)",
+    dotColor: "hsl(0, 84%, 60%)", // red-500
+  }
 ]
 
 export default function LiveStatus() {
@@ -48,34 +58,40 @@ export default function LiveStatus() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // Fade out
       setIsVisible(false)
 
       setTimeout(() => {
-        // Change status
         const randomIndex = Math.floor(Math.random() * statusOptions.length)
         setCurrentStatus(statusOptions[randomIndex])
-
-        // Fade in
         setIsVisible(true)
-      }, 200)
-    }, 7000) // Change every 6 seconds
+      }, 300) 
+    }, 5000) 
 
     return () => clearInterval(interval)
   }, [])
 
   return (
     <div
-      className={`flex items-center gap-2 px-3 py-1.5 border rounded-full backdrop-blur-sm transition-all duration-200 ${
-        currentStatus.borderColor
-      } ${currentStatus.bgColor} ${isVisible ? "opacity-100 scale-100" : "opacity-70 scale-95"}`}
+      // 2. Apply the colors via CSS variables
+      style={{
+        '--bg-color': currentStatus.bgColor,
+        '--border-color': currentStatus.borderColor,
+        '--dot-color': currentStatus.dotColor,
+        '--text-color': currentStatus.color,
+      } as React.CSSProperties}
+      className={cn(
+        "flex items-center gap-2 rounded-full border px-3 py-1.5 backdrop-blur-sm transition-all duration-300",
+        "bg-[var(--bg-color)] border-[var(--border-color)]", // Use the variables
+        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+      )}
     >
       <div className="relative">
-        <div className="w-2 h-2 bg-green-500 dark:bg-green-400 rounded-full"></div>
-        <div className="absolute inset-0 w-2 h-2 bg-green-500 dark:bg-green-400 rounded-full animate-ping opacity-75"></div>
-        <div className="absolute inset-0 w-2 h-2 bg-green-500 dark:bg-green-400 rounded-full animate-pulse"></div>
+        {/* 3. The dot now uses the CSS variable for its background color */}
+        <div className="h-2 w-2 rounded-full bg-[var(--dot-color)]"></div>
+        <div className="absolute inset-0 h-2 w-2 animate-ping rounded-full opacity-75 bg-[var(--dot-color)]"></div>
+        <div className="absolute inset-0 h-2 w-2 animate-pulse rounded-full bg-[var(--dot-color)]"></div>
       </div>
-      <span className={`text-xs font-medium whitespace-nowrap transition-colors duration-200 ${currentStatus.color}`}>
+      <span className="text-xs font-medium whitespace-nowrap text-[var(--text-color)]">
         {currentStatus.text}
       </span>
     </div>
