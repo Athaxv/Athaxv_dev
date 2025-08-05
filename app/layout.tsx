@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/Navbar";
 import { DockDemo } from "@/components/Dock-demo";
 import { Analytics } from "@vercel/analytics/next"
+import Gradient from "@/components/Gradient";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,9 +38,11 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <Gradient>
             <Navbar/>
         {children}
         <DockDemo/>
+        </Gradient>
         </ThemeProvider>
         <Analytics />
       </body>

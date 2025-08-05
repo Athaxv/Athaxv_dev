@@ -24,7 +24,7 @@ const sectionVariants = {
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center bg-white p-4 dark:bg-black">
+    <main className="flex flex-col items-center  p-4 dark:bg-black">
       <div className="flex w-full max-w-6xl flex-col gap-24">
         
         {/* HomePage is no longer wrapped in motion.div, so it has no animation */}
