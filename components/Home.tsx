@@ -7,6 +7,15 @@ import { SpinningText } from "./magicui/spinning-text";
 import { RainbowButton } from "./magicui/rainbow-button";
 import { Italianno } from "next/font/google";
 import { MessageCircle } from "lucide-react";
+// import localFont from 'next/font/local'
+import { GeistSans } from 'geist/font/sans';
+// import { AnimatedShinyText } from "./magicui/animated-shiny-text";
+
+// export const geistSans = localFont({
+//   src: './fonts/GeistVF.woff',
+//   variable: '--font-geist-sans',
+//   weight: '100 900',
+// });
 
 const italianno = Italianno({ subsets: ["latin"], weight: "400" });
 
@@ -47,6 +56,10 @@ export function HomePage() {
           initial="hidden"
           animate="visible" // Use animate="visible" to trigger on page load
         >
+          <motion.div 
+            className="mb-5 -my-10">
+            {/* <AnimatedShinyText>Learning to Code</AnimatedShinyText> */}
+          </motion.div>
           {/* 4. Wrap each element in a motion.div with itemVariants */}
           <motion.h1
             variants={itemVariants}
@@ -61,9 +74,9 @@ export function HomePage() {
 
           <motion.p
             variants={itemVariants}
-            className="mx-auto max-w-2xl text-lg leading-8 text-muted-foreground"
+            className={`mx-auto max-w-2xl text-lg leading-8 text-muted-foreground ${GeistSans.className}`}
           >
-            Hey, I specialize in full-stack development. My focus is on creating clean, efficient, and engaging digital products from concept to deployment.
+            I architect fullstack magic, turning complex problems into sleek, user-first digital adventures with code that speaks creativity,
           </motion.p>
 
           <motion.div
